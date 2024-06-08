@@ -1,4 +1,4 @@
-package com.example.dailytasks.data.local
+package com.example.dailytasks.data_source.local
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.dailytasks.data.local.dto.DailyTask
+import com.example.dailytasks.data_source.local.entity.DailyTask
 import kotlinx.coroutines.flow.Flow
 
 @Dao

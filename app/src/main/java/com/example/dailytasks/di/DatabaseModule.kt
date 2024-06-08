@@ -2,7 +2,7 @@ package com.example.dailytasks.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.dailytasks.data.local.DailyTasksDatabase
+import com.example.dailytasks.data_source.local.DailyTasksDatabase
 import com.example.dailytasks.util.Constants.DB_NAME
 import dagger.Module
 import dagger.Provides

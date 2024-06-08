@@ -1,4 +1,4 @@
-package com.example.dailytasks.data.local.dto
+package com.example.dailytasks.data_source.local.entity
 
 import androidx.compose.ui.graphics.Color
 import com.example.dailytasks.ui.theme.TaskDoneColor
