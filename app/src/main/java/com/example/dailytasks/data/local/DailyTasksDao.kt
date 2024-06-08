@@ -1,0 +1,59 @@
+package com.example.dailytasks.data.local
+
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
+import com.example.dailytasks.data.local.dto.DailyTask
+import kotlinx.coroutines.flow.Flow
+
+@Dao
+interface DailyTasksDao {
+
+    @Query("SELECT * FROM dailytask ORDER BY id ASC")
+    fun getAllTasks(): Flow<List<DailyTask>>
+
+    @Query("SELECT * FROM dailytask WHERE id=:taskId")
+    fun getSelectedTask(taskId: Int): Flow<DailyTask>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addTask(dailyTask: DailyTask)
+
+    @Update
+    suspend fun updateTask(dailyTask: DailyTask)
+
+    @Delete
+    suspend fun deleteTask(dailyTask: DailyTask)
+
+    @Query("DELETE FROM dailytask")
+    suspend fun deleteAllTasks()
+
+    @Query("SELECT * FROM dailytask WHERE title LIKE :query OR description LIKE :query")
+    fun searchDB(query: String): Flow<List<DailyTask>>
+
+    @Query(
+        """
+        SELECT * FROM dailytask ORDER BY
+    CASE
+        WHEN status LIKE 'D%' THEN 1
+        WHEN status LIKE 'I%' THEN 2
+        WHEN status LIKE 'T%' THEN 3
+    END
+    """
+    )
+    fun sortTasksByDoneStatus(): Flow<List<DailyTask>>
+
+    @Query(
+        """
+        SELECT * FROM dailytask ORDER BY
+    CASE
+        WHEN status LIKE 'T%' THEN 1
+        WHEN status LIKE 'I%' THEN 2
+        WHEN status LIKE 'D%' THEN 3
+    END
+    """
+    )
+    fun sortTasksByToDoStatus(): Flow<List<DailyTask>>
+}
