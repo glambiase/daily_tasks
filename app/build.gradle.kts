@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.dailytasks"
+    namespace = "com.glambiase.dailytasks"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.dailytasks"
+        applicationId = "com.glambiase.dailytasks"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -68,6 +68,10 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Compose Navigation
+    val navVersion = "2.7.7"
+    implementation("androidx.navigation:navigation-compose:$navVersion")
 
     // Room
     val roomVersion = "2.6.1"
