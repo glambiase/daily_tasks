@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.glambiase.dailytasks.data.local.DailyTasksDao
 import com.glambiase.dailytasks.data.local.DailyTasksDatabase
+import com.glambiase.dailytasks.data.local.DailyTasksDatabase.Companion.DB_NAME
 import com.glambiase.dailytasks.data.repository.DailyTasksRepositoryImpl
-import com.glambiase.dailytasks.data.util.Constants.DB_NAME
 import com.glambiase.dailytasks.domain.repository.DailyTasksRepository
 import dagger.Module
 import dagger.Provides

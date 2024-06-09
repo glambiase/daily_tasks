@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name="com.glambiase.dailytasks.DailyTasksApplication"
+        android:name=".DailyTasksApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +14,7 @@
         android:theme="@style/Theme.DailyTasks"
         tools:targetApi="31">
         <activity
-            android:name="com.glambiase.dailytasks.presentation.MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.DailyTasks">
             <intent-filter>

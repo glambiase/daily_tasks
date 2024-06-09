@@ -5,23 +5,19 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface DailyTasksDao {
 
-    @Query("SELECT * FROM dailytaskentity ORDER BY id ASC")
+    @Query("SELECT * FROM dailytaskentity")
     fun getAllTasks(): Flow<List<DailyTaskEntity>>
 
     @Query("SELECT * FROM dailytaskentity WHERE id=:taskId")
     fun getSelectedTask(taskId: Int): Flow<DailyTaskEntity>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addTask(dailyTask: DailyTaskEntity)
-
-    @Update
-    suspend fun updateTask(dailyTask: DailyTaskEntity)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTask(dailyTask: DailyTaskEntity)
 
     @Delete
     suspend fun deleteTask(dailyTask: DailyTaskEntity)

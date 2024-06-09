@@ -8,7 +8,8 @@ fun DailyTaskEntity.toDailyTask() =
         id = id,
         title = title,
         description = description,
-        status = status
+        status = status,
+        timestamp = timestamp
     )
 
 fun DailyTask.toDailyTaskEntity() =
@@ -16,5 +17,6 @@ fun DailyTask.toDailyTaskEntity() =
         id = id,
         title = title,
         description = description,
-        status = status
+        status = status,
+        timestamp = timestamp
     )

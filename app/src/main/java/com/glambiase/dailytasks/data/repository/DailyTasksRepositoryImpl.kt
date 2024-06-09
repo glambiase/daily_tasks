@@ -13,8 +13,8 @@ class DailyTasksRepositoryImpl(
     private val dailyTasksDao: DailyTasksDao
 ) : DailyTasksRepository {
 
-    override fun getAllTasks() = dailyTasksDao.getAllTasks().map { dailyTaskEntities ->
-        dailyTaskEntities.map {
+    override fun getAllTasks() = dailyTasksDao.getAllTasks().map { taskEntities ->
+        taskEntities.map {
             it.toDailyTask()
         }
     }
@@ -23,28 +23,26 @@ class DailyTasksRepositoryImpl(
         it.toDailyTask()
     }
 
-    override suspend fun addTask(task: DailyTask) = dailyTasksDao.addTask(task.toDailyTaskEntity())
-
-    override suspend fun updateTask(task: DailyTask) = dailyTasksDao.updateTask(task.toDailyTaskEntity())
+    override suspend fun insertTask(task: DailyTask) = dailyTasksDao.insertTask(task.toDailyTaskEntity())
 
     override suspend fun deleteTask(task: DailyTask) = dailyTasksDao.deleteTask(task.toDailyTaskEntity())
 
     override suspend fun deleteAllTasks() = dailyTasksDao.deleteAllTasks()
 
-    override fun searchDB(query: String) = dailyTasksDao.searchDB(query).map { dailyTaskEntities ->
-        dailyTaskEntities.map {
+    override fun searchDB(query: String) = dailyTasksDao.searchDB(query).map { taskEntities ->
+        taskEntities.map {
             it.toDailyTask()
         }
     }
 
-    override fun sortTasksByDoneStatus() = dailyTasksDao.sortTasksByDoneStatus().map { dailyTaskEntities ->
-        dailyTaskEntities.map {
+    override fun sortTasksByDoneStatus() = dailyTasksDao.sortTasksByDoneStatus().map { taskEntities ->
+        taskEntities.map {
             it.toDailyTask()
         }
     }
 
-    override fun sortTasksByToDoStatus() = dailyTasksDao.sortTasksByToDoStatus().map { dailyTaskEntities ->
-        dailyTaskEntities.map {
+    override fun sortTasksByToDoStatus() = dailyTasksDao.sortTasksByToDoStatus().map { taskEntities ->
+        taskEntities.map {
             it.toDailyTask()
         }
     }
