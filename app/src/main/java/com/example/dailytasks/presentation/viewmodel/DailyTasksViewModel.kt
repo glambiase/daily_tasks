@@ -1,9 +1,9 @@
-package com.example.dailytasks.ui.viewmodel
+package com.example.dailytasks.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.dailytasks.data_source.local.entity.DailyTask
-import com.example.dailytasks.data_source.repository.DailyTasksRepository
+import com.example.dailytasks.domain.model.DailyTask
+import com.example.dailytasks.domain.usecase.GetAllTasksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DailyTasksViewModel @Inject constructor(
-    private val dailyTasksRepository: DailyTasksRepository
+    private val getAllTasksUseCase: GetAllTasksUseCase
 ) : ViewModel() {
 
     private val _allTasks = MutableStateFlow<List<DailyTask>>(emptyList())
@@ -20,7 +20,7 @@ class DailyTasksViewModel @Inject constructor(
 
     fun getAllTasks() {
         viewModelScope.launch {
-            dailyTasksRepository.getAllTasks().collect {
+            getAllTasksUseCase().collect {
                 _allTasks.value = it
             }
         }

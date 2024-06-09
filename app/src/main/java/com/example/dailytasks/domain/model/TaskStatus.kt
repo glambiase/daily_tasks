@@ -1,4 +1,4 @@
-package com.example.dailytasks.data_source.local.entity
+package com.example.dailytasks.domain.model
 
 import androidx.compose.ui.graphics.Color
 import com.example.dailytasks.ui.theme.TaskDoneColor

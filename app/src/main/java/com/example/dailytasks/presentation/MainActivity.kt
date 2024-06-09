@@ -1,4 +1,4 @@
-package com.example.dailytasks
+package com.example.dailytasks.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -1,4 +1,4 @@
-package com.example.dailytasks.util
+package com.example.dailytasks.data.util
 
 object Constants {
 
