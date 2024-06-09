@@ -5,10 +5,8 @@ import com.glambiase.dailytasks.data.mapper.toDailyTask
 import com.glambiase.dailytasks.data.mapper.toDailyTaskEntity
 import com.glambiase.dailytasks.domain.model.DailyTask
 import com.glambiase.dailytasks.domain.repository.DailyTasksRepository
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.map
 
-@ViewModelScoped
 class DailyTasksRepositoryImpl(
     private val dailyTasksDao: DailyTasksDao
 ) : DailyTasksRepository {
