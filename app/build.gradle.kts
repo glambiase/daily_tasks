@@ -79,12 +79,9 @@ dependencies {
     ksp("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
 
-    // DataStore Preferences
-    val dataStoreVersion = "1.1.1"
-    implementation("androidx.datastore:datastore-preferences:$dataStoreVersion")
-
     // Dagger-Hilt
     val hiltVersion = "2.48"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     ksp("com.google.dagger:hilt-compiler:$hiltVersion")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 }
