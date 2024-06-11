@@ -6,7 +6,7 @@ import com.glambiase.dailytasks.domain.model.TaskStatus
 
 @Entity
 data class DailyTaskEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val title: String,
     val description: String,
     val status: TaskStatus,

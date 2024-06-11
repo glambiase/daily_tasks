@@ -2,9 +2,9 @@ package com.glambiase.dailytasks.domain.util
 
 sealed class Sorting {
 
-    object ByToDoStatus : Sorting()
+    data object ByToDoStatus : Sorting()
 
-    object ByDoneStatus : Sorting()
+    data object ByDoneStatus : Sorting()
 
-    object ByDate : Sorting()
+    data object ByDate : Sorting()
 }

@@ -7,7 +7,7 @@ interface DailyTasksRepository {
 
     fun getAllTasks(): Flow<List<DailyTask>>
 
-    fun getSelectedTask(taskId: Int): Flow<DailyTask>
+    suspend fun getTaskById(taskId: Int): DailyTask
 
     suspend fun insertTask(task: DailyTask)
 
