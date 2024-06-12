@@ -1,11 +1,15 @@
 package com.glambiase.dailytasks.presentation.components
 
 import androidx.annotation.StringRes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import com.glambiase.dailytasks.R
 
 @Composable
 fun Fab(
@@ -20,4 +24,14 @@ fun Fab(
             imageVector = image,
             contentDescription = stringResource(contentDesc))
     }
+}
+
+@Composable
+@Preview
+private fun FabPreview() {
+    Fab(
+        image = Icons.Filled.Add,
+        contentDesc = R.string.add_task_cd,
+        onClick = {}
+    )
 }
