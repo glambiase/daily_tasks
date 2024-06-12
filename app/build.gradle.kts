@@ -84,4 +84,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     ksp("com.google.dagger:hilt-compiler:$hiltVersion")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    // Unit Test
+    testImplementation("com.google.truth:truth:1.1.3")
 }
