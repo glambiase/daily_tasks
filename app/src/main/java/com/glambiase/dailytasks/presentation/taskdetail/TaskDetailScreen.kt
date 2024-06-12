@@ -57,12 +57,13 @@ fun TaskDetailScreen(
                 onDescriptionChange = { viewModel.onEvent(TaskDetailEvent.ChangeDescription(it)) },
                 status = statusState,
                 onStatusSelected = { viewModel.onEvent(TaskDetailEvent.ChangeStatus(it)) },
-                modifier = Modifier.padding(
-                    start = paddingValues.calculateStartPadding(layoutDirection = LayoutDirection.Ltr),
-                    top = paddingValues.calculateTopPadding(),
-                    end = paddingValues.calculateEndPadding(layoutDirection = LayoutDirection.Ltr),
-                    bottom = paddingValues.calculateBottomPadding()
-                )
+                modifier = Modifier
+                    .padding(
+                        start = paddingValues.calculateStartPadding(layoutDirection = LayoutDirection.Ltr),
+                        top = paddingValues.calculateTopPadding(),
+                        end = paddingValues.calculateEndPadding(layoutDirection = LayoutDirection.Ltr),
+                        bottom = paddingValues.calculateBottomPadding()
+                    )
             )
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) }

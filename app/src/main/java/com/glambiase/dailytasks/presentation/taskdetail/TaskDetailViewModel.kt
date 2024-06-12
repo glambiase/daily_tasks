@@ -10,7 +10,8 @@ import com.glambiase.dailytasks.domain.model.DailyTask
 import com.glambiase.dailytasks.domain.model.TaskStatus
 import com.glambiase.dailytasks.domain.usecase.GetSelectedTaskUseCase
 import com.glambiase.dailytasks.domain.usecase.InsertTaskUseCase
-import com.glambiase.dailytasks.presentation.util.Constants.TASK_ID_NAV_ARG
+import com.glambiase.dailytasks.presentation.util.Constants.TASK_ID_ARG_NAME
+import com.glambiase.dailytasks.presentation.util.Constants.TASK_ID_ARG_DEFAULT_VALUE
 import com.glambiase.dailytasks.presentation.util.EmptyTaskException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -38,15 +39,19 @@ class TaskDetailViewModel @Inject constructor(
     val oneTimeEvent = _oneTimeEvent.receiveAsFlow()
 
     private var taskId: Int? = null
+    private var timestamp: Long? = null
 
     init {
-        savedStateHandle.get<Int>(TASK_ID_NAV_ARG)?.let { id ->
-            viewModelScope.launch {
-                getSelectedTaskUseCase(id).also { task ->
-                    taskId = task.id
-                    title = task.title
-                    description = task.description
-                    status = task.status
+        savedStateHandle.get<Int>(TASK_ID_ARG_NAME)?.let { id ->
+            if (id != TASK_ID_ARG_DEFAULT_VALUE) {
+                viewModelScope.launch {
+                    getSelectedTaskUseCase(id).also { task ->
+                        taskId = task.id
+                        title = task.title
+                        description = task.description
+                        status = task.status
+                        timestamp = task.timestamp
+                    }
                 }
             }
         }
@@ -72,7 +77,7 @@ class TaskDetailViewModel @Inject constructor(
                                 title = title,
                                 description = description,
                                 status = status,
-                                timestamp = System.currentTimeMillis()
+                                timestamp = timestamp ?: System.currentTimeMillis()
                             )
                         )
                         _oneTimeEvent.send(OneTimeEvent.TaskSaved)

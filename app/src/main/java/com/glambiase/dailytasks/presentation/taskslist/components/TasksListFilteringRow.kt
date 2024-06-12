@@ -41,7 +41,7 @@ fun TasksListFilteringRow(
                 label = {
                     Text(
                         text = status.getFormattedName(),
-                        style = MaterialTheme.typography.titleMedium,
+                        style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurface,
 
                         )

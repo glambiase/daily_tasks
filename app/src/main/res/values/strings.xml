@@ -2,15 +2,15 @@
     <string name="app_name">DailyTasks</string>
 
     <!-- common: UI -->
+
     <!-- common: accessibility - content descriptions -->
     <string name="go_back_cd">torna indietro</string>
 
     <!-- tasks_list_screen: UI -->
     <string name="tasks_app_bar">Lista Attività</string>
-    <string name="done">Completata</string>
-    <string name="work_in_progress">In corso</string>
-    <string name="to_do">Da fare</string>
-    <string name="date">Data</string>
+    <string name="by_date">ordina per data</string>
+    <string name="by_done_status">ordina per stato \"Completata\"</string>
+    <string name="by_to_do_status">ordina per stato \"Da fare\"</string>
     <string name="delete_tasks_title">Elimina tutte le attività</string>
     <string name="delete_tasks_description">Procedere con l\'eliminazione di tutte le attività? Non sarà più possibile tornare indietro.</string>
     <string name="yes">Si</string>

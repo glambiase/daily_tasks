@@ -49,7 +49,7 @@ fun DailyTaskLabel(
 @Preview(showBackground = true)
 private fun DailyTaskLabelPreview() {
     DailyTaskLabel(
-        text = stringResource(id = R.string.done),
+        text = stringResource(id = R.string.by_done_status),
         color = TaskDoneColor,
     )
 }

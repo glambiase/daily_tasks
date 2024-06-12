@@ -24,22 +24,4 @@ class DailyTasksRepositoryImpl(
     override suspend fun deleteTask(task: DailyTask) = dailyTasksDao.deleteTask(task.toDailyTaskEntity())
 
     override suspend fun deleteAllTasks() = dailyTasksDao.deleteAllTasks()
-
-    override fun searchDB(query: String) = dailyTasksDao.searchDB(query).map { taskEntities ->
-        taskEntities.map {
-            it.toDailyTask()
-        }
-    }
-
-    override fun sortTasksByDoneStatus() = dailyTasksDao.sortTasksByDoneStatus().map { taskEntities ->
-        taskEntities.map {
-            it.toDailyTask()
-        }
-    }
-
-    override fun sortTasksByToDoStatus() = dailyTasksDao.sortTasksByToDoStatus().map { taskEntities ->
-        taskEntities.map {
-            it.toDailyTask()
-        }
-    }
 }

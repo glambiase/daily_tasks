@@ -17,7 +17,7 @@ import com.glambiase.dailytasks.domain.model.TaskStatus
 @Composable
 fun TasksList(
     tasks: List<DailyTask>,
-    onTaskClick: () -> Unit,
+    onTaskClick: (Int?) -> Unit,
     onDeleteTaskClick: (DailyTask) -> Unit,
     modifier: Modifier = Modifier
 ) {

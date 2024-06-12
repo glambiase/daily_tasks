@@ -9,8 +9,7 @@ import com.glambiase.dailytasks.domain.model.DailyTask
 import com.glambiase.dailytasks.domain.model.TaskStatus
 import com.glambiase.dailytasks.domain.usecase.DeleteAllTasksUseCase
 import com.glambiase.dailytasks.domain.usecase.DeleteTaskUseCase
-import com.glambiase.dailytasks.domain.usecase.FilterTasksByStatusUseCase
-import com.glambiase.dailytasks.domain.usecase.GetAllTasksUseCase
+import com.glambiase.dailytasks.domain.usecase.GetTasksUseCase
 import com.glambiase.dailytasks.domain.usecase.InsertTaskUseCase
 import com.glambiase.dailytasks.domain.util.Sorting
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,17 +21,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TasksListViewModel @Inject constructor(
-    private val getAllTasksUseCase: GetAllTasksUseCase,
+    private val getTasksUseCase: GetTasksUseCase,
     private val deleteTaskUseCase: DeleteTaskUseCase,
     private val insertTaskUseCase: InsertTaskUseCase,
-    private val deleteAllTasksUseCase: DeleteAllTasksUseCase,
-    private val filterTasksByStatusUseCase: FilterTasksByStatusUseCase
+    private val deleteAllTasksUseCase: DeleteAllTasksUseCase
 ) : ViewModel() {
-
-    /*
-    private val _tasksState = mutableStateOf(TasksListState())
-    val tasksState: State<TasksListState> = _tasksState
-    */
 
     var tasksState by mutableStateOf(TasksListState())
         private set
@@ -49,17 +42,14 @@ class TasksListViewModel @Inject constructor(
         when (event) {
             is TasksListEvent.SortTasks -> {
                 if (event.sorting != tasksState.sorting) {
-                    getTasks(event.sorting)
+                    getTasks(event.sorting, tasksState.statusFilter)
                 }
             }
             is TasksListEvent.FilterTasks -> {
                 if (event.statusFilter == tasksState.statusFilter) {
-                    getTasks()
-                    tasksState = tasksState.copy(
-                        statusFilter = null
-                    )
+                    getTasks(tasksState.sorting, null)
                 } else {
-                    filterTasks(event.statusFilter)
+                    getTasks(tasksState.sorting, event.statusFilter)
                 }
             }
             is TasksListEvent.DeleteTask -> {
@@ -76,30 +66,22 @@ class TasksListViewModel @Inject constructor(
             }
             TasksListEvent.DeleteAllTasks -> {
                 viewModelScope.launch {
-                    deleteAllTasksUseCase
+                    deleteAllTasksUseCase()
                 }
             }
         }
     }
 
-    private fun getTasks(sorting: Sorting = Sorting.ByDate) {
+    private fun getTasks(
+        sorting: Sorting = Sorting.ByDate,
+        statusFilter: TaskStatus? = null
+    ) {
         tasksJob?.cancel()
-        tasksJob = getAllTasksUseCase(sorting)
+        tasksJob = getTasksUseCase(sorting, statusFilter)
             .onEach { tasks ->
                 tasksState = tasksState.copy(
                     tasks = tasks,
-                    sorting = sorting
-                )
-            }
-            .launchIn(viewModelScope)
-    }
-
-    private fun filterTasks(statusFilter: TaskStatus) {
-        tasksJob?.cancel()
-        tasksJob = filterTasksByStatusUseCase(statusFilter)
-            .onEach { tasks ->
-                tasksState = tasksState.copy(
-                    tasks = tasks,
+                    sorting = sorting,
                     statusFilter = statusFilter
                 )
             }

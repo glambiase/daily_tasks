@@ -1,9 +1,11 @@
 package com.glambiase.dailytasks.presentation.taskslist.components
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.Divider
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -93,21 +95,25 @@ fun SortAction(
         )
         DropdownMenu(
             expanded = expanded,
-            onDismissRequest = { expanded = false }
+            onDismissRequest = { expanded = false },
+            modifier = Modifier.fillMaxWidth(fraction = 0.75f)
         ) {
-            sortingItems.forEach {
+            sortingItems.forEachIndexed { i, item ->
                 DropdownMenuItem(
                     text = {
                         DailyTaskLabel(
-                            text = stringResource(id = it.text),
-                            color = it.color
+                            text = stringResource(id = item.text),
+                            color = item.color
                         )
                     },
                     onClick = {
                         expanded = false
-                        onSortClick(it.sorting)
+                        onSortClick(item.sorting)
                     }
                 )
+                if (i != sortingItems.lastIndex) {
+                    Divider()
+                }
             }
         }
     }
@@ -151,19 +157,19 @@ fun DeleteAllAction(
 
 val sortingItems = listOf(
     SortingItem(
-        text = R.string.done,
+        text = R.string.by_date,
+        color = Purple80,
+        sorting = Sorting.ByDate
+    ),
+    SortingItem(
+        text = R.string.by_done_status,
         color = TaskDoneColor,
         sorting = Sorting.ByDoneStatus
     ),
     SortingItem(
-        text = R.string.to_do,
+        text = R.string.by_to_do_status,
         color = TaskToDoColor,
         sorting = Sorting.ByToDoStatus
-    ),
-    SortingItem(
-        text = R.string.date,
-        color = Purple80,
-        sorting = Sorting.ByDate
     )
 )
 

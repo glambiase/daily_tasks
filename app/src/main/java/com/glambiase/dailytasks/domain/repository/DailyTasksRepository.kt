@@ -14,10 +14,4 @@ interface DailyTasksRepository {
     suspend fun deleteTask(task: DailyTask)
 
     suspend fun deleteAllTasks()
-
-    fun searchDB(query: String): Flow<List<DailyTask>>
-
-    fun sortTasksByDoneStatus(): Flow<List<DailyTask>>
-
-    fun sortTasksByToDoStatus(): Flow<List<DailyTask>>
 }

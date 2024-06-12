@@ -23,7 +23,7 @@ fun TasksListContent(
     statusFilter: TaskStatus?,
     onFilterSelected: (TaskStatus) -> Unit,
     tasks: List<DailyTask>,
-    onTaskClick: () -> Unit,
+    onTaskClick: (Int?) -> Unit,
     onDeleteTaskClick: (DailyTask) -> Unit,
     modifier: Modifier = Modifier
 ) {

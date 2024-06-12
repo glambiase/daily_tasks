@@ -22,6 +22,8 @@ import com.glambiase.dailytasks.R
 import com.glambiase.dailytasks.presentation.components.Fab
 import com.glambiase.dailytasks.presentation.taskslist.components.TasksListAppBar
 import com.glambiase.dailytasks.presentation.taskslist.components.TasksListContent
+import com.glambiase.dailytasks.presentation.util.Constants.TASK_ID_ARG_NAME
+import com.glambiase.dailytasks.presentation.util.Screens
 import kotlinx.coroutines.launch
 
 @Composable
@@ -55,7 +57,11 @@ fun TasksListScreen(
                     viewModel.onEvent(TasksListEvent.FilterTasks(it))
                 },
                 tasks = state.tasks,
-                onTaskClick = {}, // navController.navigate
+                onTaskClick = {
+                    navController.navigate(
+                        "${Screens.TaskDetailScreen.route}?$TASK_ID_ARG_NAME=$it"
+                    )
+                },
                 onDeleteTaskClick = {
                     viewModel.onEvent(TasksListEvent.DeleteTask(it))
                     scope.launch {
@@ -69,19 +75,20 @@ fun TasksListScreen(
                         }
                     }
                 },
-                modifier = Modifier.padding(
-                    start = paddingValues.calculateStartPadding(layoutDirection = LayoutDirection.Ltr),
-                    top = paddingValues.calculateTopPadding(),
-                    end = paddingValues.calculateEndPadding(layoutDirection = LayoutDirection.Ltr),
-                    bottom = paddingValues.calculateBottomPadding()
-                )
+                modifier = Modifier
+                    .padding(
+                        start = paddingValues.calculateStartPadding(layoutDirection = LayoutDirection.Ltr),
+                        top = paddingValues.calculateTopPadding(),
+                        end = paddingValues.calculateEndPadding(layoutDirection = LayoutDirection.Ltr),
+                        bottom = paddingValues.calculateBottomPadding()
+                    )
             )
         },
         floatingActionButton = {
             Fab(
                 image = Icons.Filled.Add,
                 contentDesc = R.string.fab_cd,
-                onClick = { } //navController.navigate()
+                onClick = { navController.navigate(Screens.TaskDetailScreen.route) }
             )
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) }

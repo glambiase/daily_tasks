@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.Divider
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -80,21 +81,24 @@ fun TaskStatusDropDown(
         DropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false },
-            modifier = Modifier.fillMaxWidth(fraction = 0.95f)
+            modifier = Modifier.fillMaxWidth(fraction = 0.75f)
         ) {
-            TaskStatus.entries.toTypedArray().forEach {
+            TaskStatus.entries.toTypedArray().forEachIndexed { i, status ->
                 DropdownMenuItem(
                     text = {
                         DailyTaskLabel(
-                            text = it.getFormattedName(),
-                            color = it.color
+                            text = status.getFormattedName(),
+                            color = status.color
                         )
                     },
                     onClick = {
                         expanded = false
-                        onStatusSelected(it)
+                        onStatusSelected(status)
                     }
                 )
+                if (i != TaskStatus.entries.lastIndex) {
+                    Divider()
+                }
             }
         }
     }

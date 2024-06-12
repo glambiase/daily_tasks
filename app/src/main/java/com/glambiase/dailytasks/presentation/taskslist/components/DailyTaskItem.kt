@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Icon
@@ -19,7 +20,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,14 +31,14 @@ import com.glambiase.dailytasks.domain.model.TaskStatus
 @Composable
 fun DailyTaskItem(
     dailyTask: DailyTask,
-    onClick: () -> Unit,
+    onClick: (Int?) -> Unit,
     onDeleteClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Surface(
-        shape = RectangleShape,
+        shape = RoundedCornerShape(16.dp),
         shadowElevation = 4.dp,
-        onClick = { onClick() },
+        onClick = { onClick(dailyTask.id) },
         border = BorderStroke(
             width = 2.dp,
             color = dailyTask.status.color
@@ -62,7 +62,7 @@ fun DailyTaskItem(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = dailyTask.title,
+                    text = dailyTask.description,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface,
                     maxLines = 8,
