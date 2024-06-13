@@ -17,7 +17,7 @@ class DailyTasksRepositoryImpl(
         }
     }
 
-    override suspend fun getTaskById(taskId: Int) = dailyTasksDao.getTaskById(taskId).toDailyTask()
+    override suspend fun getTaskById(taskId: Int) = dailyTasksDao.getTaskById(taskId)?.toDailyTask()
 
     override suspend fun insertTask(task: DailyTask) = dailyTasksDao.insertTask(task.toDailyTaskEntity())
 

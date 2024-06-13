@@ -2,7 +2,7 @@ package com.glambiase.dailytasks.domain.usecase
 
 import com.glambiase.dailytasks.domain.model.DailyTask
 import com.glambiase.dailytasks.domain.repository.DailyTasksRepository
-import com.glambiase.dailytasks.presentation.util.EmptyTaskException
+import com.glambiase.dailytasks.domain.util.EmptyTaskException
 import javax.inject.Inject
 
 class InsertTaskUseCase @Inject constructor(

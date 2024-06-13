@@ -14,7 +14,7 @@ interface DailyTasksDao {
     fun getAllTasks(): Flow<List<DailyTaskEntity>>
 
     @Query("SELECT * FROM dailytaskentity WHERE id=:taskId")
-    suspend fun getTaskById(taskId: Int): DailyTaskEntity
+    suspend fun getTaskById(taskId: Int): DailyTaskEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTask(dailyTask: DailyTaskEntity)

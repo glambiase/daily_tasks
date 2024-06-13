@@ -12,7 +12,7 @@ import com.glambiase.dailytasks.domain.usecase.GetSelectedTaskUseCase
 import com.glambiase.dailytasks.domain.usecase.InsertTaskUseCase
 import com.glambiase.dailytasks.presentation.util.Constants.TASK_ID_ARG_NAME
 import com.glambiase.dailytasks.presentation.util.Constants.TASK_ID_ARG_DEFAULT_VALUE
-import com.glambiase.dailytasks.presentation.util.EmptyTaskException
+import com.glambiase.dailytasks.domain.util.EmptyTaskException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -45,7 +45,7 @@ class TaskDetailViewModel @Inject constructor(
         savedStateHandle.get<Int>(TASK_ID_ARG_NAME)?.let { id ->
             if (id != TASK_ID_ARG_DEFAULT_VALUE) {
                 viewModelScope.launch {
-                    getSelectedTaskUseCase(id).also { task ->
+                    getSelectedTaskUseCase(id)?.also { task ->
                         taskId = task.id
                         title = task.title
                         description = task.description

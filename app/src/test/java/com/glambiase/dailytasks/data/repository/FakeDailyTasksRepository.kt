@@ -6,11 +6,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class FakeDailyTasksRepository : DailyTasksRepository {
+
     override fun getAllTasks(): Flow<List<DailyTask>> =
         flow { emit(tasks) }
 
-    override suspend fun getTaskById(taskId: Int): DailyTask =
-        tasks.find { it.id == taskId } ?: tasks.first()
+    override suspend fun getTaskById(taskId: Int) =
+        tasks.find { it.id == taskId }
 
     override suspend fun insertTask(task: DailyTask) {
         tasks.add(task)
@@ -25,4 +26,6 @@ class FakeDailyTasksRepository : DailyTasksRepository {
     }
 
     private val tasks = mutableListOf<DailyTask>()
+    fun fetchTasks() = tasks.toList()
+    fun addTasks(tasksList: List<DailyTask>) = tasks.addAll(tasksList)
 }
