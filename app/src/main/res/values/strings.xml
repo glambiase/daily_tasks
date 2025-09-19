@@ -4,33 +4,33 @@
     <!-- common: UI -->
 
     <!-- common: accessibility - content descriptions -->
-    <string name="go_back_cd">torna indietro</string>
+    <string name="go_back_cd">go back</string>
 
     <!-- tasks_list_screen: UI -->
-    <string name="tasks_app_bar">Lista Attività</string>
-    <string name="by_date">ordina per data</string>
-    <string name="by_done_status">ordina per stato \"Completata\"</string>
-    <string name="by_to_do_status">ordina per stato \"Da fare\"</string>
-    <string name="delete_tasks_title">Elimina tutte le attività</string>
-    <string name="delete_tasks_description">Procedere con l\'eliminazione di tutte le attività? Non sarà più possibile tornare indietro.</string>
-    <string name="yes">Si</string>
+    <string name="tasks_app_bar">Tasks List</string>
+    <string name="by_date">sort by date</string>
+    <string name="by_done_status">sort by status \"Done\"</string>
+    <string name="by_to_do_status">sort by status \"To do\"</string>
+    <string name="delete_tasks_title">Delete all tasks</string>
+    <string name="delete_tasks_description">Are you sure you want to delete all tasks? There\'s no going back.</string>
+    <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="snackbar_deleted_task_msg">Attività eliminata</string>
-    <string name="snackbar_undo">Annulla</string>
+    <string name="snackbar_deleted_task_msg">Task deleted</string>
+    <string name="snackbar_undo">Undo</string>
 
     <!-- tasks_list_screen: accessibility - content descriptions -->
-    <string name="fab_cd">dettaglio attività</string>
-    <string name="sort_tasks_cd">ordina attività</string>
-    <string name="delete_task_cd">elimina attività</string>
-    <string name="delete_tasks_cd">elimina tutte le attività</string>
+    <string name="fab_cd">task detail</string>
+    <string name="sort_tasks_cd">sort tasks</string>
+    <string name="delete_task_cd">delete task</string>
+    <string name="delete_tasks_cd">delete all tasks</string>
 
     <!-- task_detail_screen: UI -->
-    <string name="task_detail_app_bar">Dettaglio Attività</string>
-    <string name="task_detail_title">Titolo</string>
-    <string name="task_detail_description">Descrizione</string>
-    <string name="snackbar_empty_task">L\'attività vuota è stata scartata</string>
+    <string name="task_detail_app_bar">Task Detail</string>
+    <string name="task_detail_title">Title</string>
+    <string name="task_detail_description">Description</string>
+    <string name="snackbar_empty_task">Empty task discarded</string>
 
     <!-- task_detail_screen: accessibility - content descriptions -->
-    <string name="add_task_cd">aggiungi attività</string>
-    <string name="drop_down_cd">stato attività</string>
+    <string name="add_task_cd">add task</string>
+    <string name="drop_down_cd">task status</string>
 </resources>

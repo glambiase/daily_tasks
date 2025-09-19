@@ -53,28 +53,28 @@ fun TasksListContent(
 @Preview(showBackground = true)
 private fun TasksListContentPreview() {
     TasksListContent(
-        statusFilter = TaskStatus.COMPLETATA,
+        statusFilter = TaskStatus.DONE,
         onFilterSelected = {},
         tasks = listOf(
             DailyTask(
                 id = 0,
                 title = stringResource(id = R.string.app_name),
                 description = stringResource(id = R.string.app_name),
-                status = TaskStatus.COMPLETATA,
+                status = TaskStatus.DONE,
                 timestamp = 0L
             ),
             DailyTask(
                 id = 0,
                 title = stringResource(id = R.string.app_name),
                 description = stringResource(id = R.string.app_name),
-                status = TaskStatus.IN_CORSO,
+                status = TaskStatus.IN_PROGRESS,
                 timestamp = 0L
             ),
             DailyTask(
                 id = 0,
                 title = stringResource(id = R.string.app_name),
                 description = stringResource(id = R.string.app_name),
-                status = TaskStatus.DA_FARE,
+                status = TaskStatus.TO_DO,
                 timestamp = 0L
             )
         ),

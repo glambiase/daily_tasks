@@ -10,7 +10,7 @@ class InsertTaskUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(dailyTask: DailyTask) {
         if (dailyTask.title.isBlank() && dailyTask.description.isBlank()) {
-            throw EmptyTaskException("Non è possibile salvare un'attività vuota.")
+            throw EmptyTaskException("You cannot save an empty task.")
         }
         dailyTasksRepository.insertTask(dailyTask)
     }

@@ -28,7 +28,7 @@ class InsertTaskUseCaseTest {
             id = 0,
             title = "title",
             description = "description",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 0L
         )
 
@@ -43,7 +43,7 @@ class InsertTaskUseCaseTest {
             id = 0,
             title = "",
             description = "",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 0L
         )
 
@@ -60,7 +60,7 @@ class InsertTaskUseCaseTest {
             id = 0,
             title = "",
             description = "",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 0L
         )
 
@@ -69,6 +69,6 @@ class InsertTaskUseCaseTest {
                 insertTaskUseCase(task)
             }
         }
-        assertThat(exception).hasMessageThat().contains("Non è possibile salvare un'attività vuota.")
+        assertThat(exception).hasMessageThat().contains("You cannot save an empty task.")
     }
 }

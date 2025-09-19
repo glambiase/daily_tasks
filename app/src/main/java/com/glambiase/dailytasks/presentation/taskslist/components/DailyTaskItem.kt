@@ -91,7 +91,7 @@ private fun DailyTaskItemPreview() {
             id = 0,
             title = stringResource(id = R.string.app_name),
             description = stringResource(id = R.string.app_name),
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 0L
         ),
         onClick = {},

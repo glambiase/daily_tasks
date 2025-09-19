@@ -27,7 +27,7 @@ class GetSelectedTaskUseCaseTest {
             id = taskId,
             title = "title",
             description = "description",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 0L
         )
 
@@ -45,7 +45,7 @@ class GetSelectedTaskUseCaseTest {
             id = 1,
             title = "title",
             description = "description",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 0L
         )
 

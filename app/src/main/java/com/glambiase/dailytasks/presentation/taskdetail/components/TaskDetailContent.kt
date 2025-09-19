@@ -78,7 +78,7 @@ private fun TaskDetailContentPreview() {
         onTitleChange = {},
         description = "",
         onDescriptionChange = {},
-        status = TaskStatus.COMPLETATA,
+        status = TaskStatus.DONE,
         onStatusSelected = {}
     )
 }

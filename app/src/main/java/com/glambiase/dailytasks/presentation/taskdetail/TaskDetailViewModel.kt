@@ -32,7 +32,7 @@ class TaskDetailViewModel @Inject constructor(
     var description by mutableStateOf("")
         private set
 
-    var status by mutableStateOf(TaskStatus.DA_FARE)
+    var status by mutableStateOf(TaskStatus.TO_DO)
         private set
 
     private val _oneTimeEvent = Channel<OneTimeEvent>()
@@ -82,7 +82,7 @@ class TaskDetailViewModel @Inject constructor(
                         )
                         _oneTimeEvent.send(OneTimeEvent.TaskSaved)
                     } catch (e: EmptyTaskException) {
-                        _oneTimeEvent.send(OneTimeEvent.ShowSnackbar(message = e.message ?: "Attività inserita non valida"))
+                        _oneTimeEvent.send(OneTimeEvent.ShowSnackbar(message = e.message ?: "Invalid task entered."))
                     }
                 }
             }

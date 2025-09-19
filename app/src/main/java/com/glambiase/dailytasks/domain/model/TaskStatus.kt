@@ -7,9 +7,9 @@ import com.glambiase.dailytasks.ui.theme.TaskToDoColor
 import java.util.Locale
 
 enum class TaskStatus(val color: Color) {
-    COMPLETATA(TaskDoneColor),
-    IN_CORSO(TaskInProgressColor),
-    DA_FARE(TaskToDoColor);
+    DONE(TaskDoneColor),
+    IN_PROGRESS(TaskInProgressColor),
+    TO_DO(TaskToDoColor);
 
     fun getFormattedName() =
         name.replace("_", " ")

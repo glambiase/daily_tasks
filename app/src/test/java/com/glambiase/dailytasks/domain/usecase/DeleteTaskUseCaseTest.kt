@@ -25,14 +25,14 @@ class DeleteTaskUseCaseTest {
             id = 0,
             title = "title",
             description = "description",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 0L
         )
         val otherTask = DailyTask(
             id = 1,
             title = "title",
             description = "description",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 1L
         )
 
@@ -49,14 +49,14 @@ class DeleteTaskUseCaseTest {
             id = 0,
             title = "title",
             description = "description",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 0L
         )
         val otherTask = DailyTask(
             id = 1,
             title = "title",
             description = "description",
-            status = TaskStatus.COMPLETATA,
+            status = TaskStatus.DONE,
             timestamp = 1L
         )
 

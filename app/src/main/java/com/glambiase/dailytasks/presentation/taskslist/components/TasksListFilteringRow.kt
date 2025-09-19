@@ -63,7 +63,7 @@ fun TasksListFilteringRow(
 @Preview(showBackground = true)
 private fun TasksListFilteringRowPreview() {
     TasksListFilteringRow(
-        selectedFilter = TaskStatus.IN_CORSO,
+        selectedFilter = TaskStatus.IN_PROGRESS,
         onFilterSelected = {}
     )
 }

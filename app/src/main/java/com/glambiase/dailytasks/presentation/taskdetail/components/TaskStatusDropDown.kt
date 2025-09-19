@@ -108,7 +108,7 @@ fun TaskStatusDropDown(
 @Preview(showBackground = true)
 private fun TaskStatusDropDownPreview() {
     TaskStatusDropDown(
-        status = TaskStatus.COMPLETATA,
+        status = TaskStatus.DONE,
         onStatusSelected = {}
     )
 }

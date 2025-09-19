@@ -48,28 +48,28 @@ class GetTasksUseCaseTest {
 
     @Test
     fun sorting_by_date_with_filter_by_done_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByDate, statusFilter = TaskStatus.COMPLETATA).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByDate, statusFilter = TaskStatus.DONE).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.COMPLETATA.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.DONE.name)
         }
     }
 
     @Test
     fun sorting_by_date_with_filter_by_in_progress_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByDate, statusFilter = TaskStatus.IN_CORSO).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByDate, statusFilter = TaskStatus.IN_PROGRESS).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.IN_CORSO.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.IN_PROGRESS.name)
         }
     }
 
     @Test
     fun sorting_by_date_with_filter_by_to_do_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByDate, statusFilter = TaskStatus.DA_FARE).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByDate, statusFilter = TaskStatus.TO_DO).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.DA_FARE.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.TO_DO.name)
         }
     }
 
@@ -84,28 +84,28 @@ class GetTasksUseCaseTest {
 
     @Test
     fun sorting_by_done_status_with_filter_by_done_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByDoneStatus, statusFilter = TaskStatus.COMPLETATA).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByDoneStatus, statusFilter = TaskStatus.DONE).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.COMPLETATA.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.DONE.name)
         }
     }
 
     @Test
     fun sorting_by_done_status_with_filter_by_in_progress_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByDoneStatus, statusFilter = TaskStatus.IN_CORSO).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByDoneStatus, statusFilter = TaskStatus.IN_PROGRESS).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.IN_CORSO.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.IN_PROGRESS.name)
         }
     }
 
     @Test
     fun sorting_by_done_status_with_filter_by_to_do_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByDoneStatus, statusFilter = TaskStatus.DA_FARE).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByDoneStatus, statusFilter = TaskStatus.TO_DO).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.DA_FARE.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.TO_DO.name)
         }
     }
 
@@ -120,28 +120,28 @@ class GetTasksUseCaseTest {
 
     @Test
     fun sorting_by_to_do_status_with_filter_by_done_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByToDoStatus, statusFilter = TaskStatus.COMPLETATA).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByToDoStatus, statusFilter = TaskStatus.DONE).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.COMPLETATA.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.DONE.name)
         }
     }
 
     @Test
     fun sorting_by_to_do_status_with_filter_by_in_progress_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByToDoStatus, statusFilter = TaskStatus.IN_CORSO).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByToDoStatus, statusFilter = TaskStatus.IN_PROGRESS).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.IN_CORSO.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.IN_PROGRESS.name)
         }
     }
 
     @Test
     fun sorting_by_to_do_status_with_filter_by_to_do_status_returns_correct_list() = runTest {
-        val tasks = getTasksUseCase(sorting = Sorting.ByToDoStatus, statusFilter = TaskStatus.DA_FARE).first()
+        val tasks = getTasksUseCase(sorting = Sorting.ByToDoStatus, statusFilter = TaskStatus.TO_DO).first()
 
         for (i in 0..tasks.lastIndex) {
-            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.DA_FARE.name)
+            assertThat(tasks[i].status.name).isEqualTo(TaskStatus.TO_DO.name)
         }
     }
 }
